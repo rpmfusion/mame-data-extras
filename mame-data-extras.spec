@@ -1,22 +1,22 @@
-%global vernumber 148
+%global vernumber 149
 
 Name:           mame-data-extras
 Version:        0.%{vernumber}
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Extra data files for MAME
 
 License:        Freely redistributable without restriction
 URL:            http://mamedev.org
-Source1:        http://www.arcade-history.com/dats/history%{vernumber}e.7z
+Source1:        http://www.arcade-history.com/dats/history%{vernumber}.7z
 Source2:        http://www.mameworld.info/mameinfo/download/Mameinfo0%{vernumber}.zip
 Source3:        http://www.kutek.net/mame_roms_pinball/mame32_config_files/ctrlr.rar
-# 0.148u1
+# 0.149
 Source4:        http://www.progettoemma.net/public/cat/catveren.zip
 Source5:        http://nplayers.arcadebelgium.be/files/nplayers0%{vernumber}.zip
-Source6:        http://cheat.retrogames.com/download/cheat0147.zip
+Source6:        http://cheat.retrogames.com/download/cheat0%{vernumber}.zip
 # 0.148
 Source7:        http://www.progettoemma.net/mess/zips/sysinfo.zip
-# 0.148
+# 0.149
 Source8:        http://www.progettosnaps.net/messinfo/messinfo.zip
 # 0.148. Get from https://sites.google.com/site/steashii/Home/ and zip
 Source9:        category.zip
@@ -103,8 +103,9 @@ install -d $RPM_BUILD_ROOT%{_datadir}/mame
 install -pm 644 history.dat mameinfo.dat Catver.ini nplayers.ini cheat.7z \
     $RPM_BUILD_ROOT%{_datadir}/mame
 install -d $RPM_BUILD_ROOT%{_datadir}/mess
-install -pm 644 category.ini sysinfo.dat pS_messinfo.dat/messinfo.dat \
-    pS_messinfo.dat/folders/version.ini $RPM_BUILD_ROOT%{_datadir}/mess
+install -pm 644 pS_messinfo.dat/"messinfo.dat Unicode, UTF-8 version (for QMC2)"/messinfo.dat \
+    pS_messinfo.dat/folders/version.ini category.ini sysinfo.dat \
+    $RPM_BUILD_ROOT%{_datadir}/mess
 # The following might be ugly, but it is way simpler than creating a -common
 # subpackage and symlinks
 install -d $RPM_BUILD_ROOT%{_datadir}/mame/ctrlr
@@ -138,6 +139,9 @@ install -pm 644 %{SOURCE10} $RPM_BUILD_ROOT%{_datadir}/mame/roms
 
 
 %changelog
+* Sun Jun 30 2013 Julian Sikorski <belegdol@fedoraproject.org> - 0.149-2
+- Updated everything except sysinfo.dat and category.ini to 0.149
+
 * Tue Feb 05 2013 Julian Sikorski <belegdol@fedoraproject.org> - 0.148-1
 - Updated everything except cheats and catlist to 0.148
 - %%define → %%global
