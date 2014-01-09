@@ -1,24 +1,24 @@
-%global vernumber 149
+%global vernumber 152
 
 Name:           mame-data-extras
 Version:        0.%{vernumber}
-Release:        2%{?dist}
+Release:        1%{?dist}
 Summary:        Extra data files for MAME
 
 License:        Freely redistributable without restriction
 URL:            http://mamedev.org
-Source1:        http://www.arcade-history.com/dats/history%{vernumber}.7z
+Source1:        http://www.arcade-history.com/dats/history%{vernumber}a.7z
 Source2:        http://www.mameworld.info/mameinfo/download/Mameinfo0%{vernumber}.zip
 Source3:        http://www.kutek.net/mame_roms_pinball/mame32_config_files/ctrlr.rar
-# 0.149
+# 0.152
 Source4:        http://www.progettoemma.net/public/cat/catveren.zip
 Source5:        http://nplayers.arcadebelgium.be/files/nplayers0%{vernumber}.zip
 Source6:        http://cheat.retrogames.com/download/cheat0%{vernumber}.zip
 # 0.148
 Source7:        http://www.progettoemma.net/mess/zips/sysinfo.zip
-# 0.149
+# 0.152
 Source8:        http://www.progettosnaps.net/messinfo/messinfo.zip
-# 0.148. Get from https://sites.google.com/site/steashii/Home/ and zip
+# 0.152. Get from https://sites.google.com/site/steashii/Home/ and zip
 Source9:        category.zip
 Source10:       http://mamedev.org/roms/robby/robby.zip
 
@@ -139,6 +139,9 @@ install -pm 644 %{SOURCE10} $RPM_BUILD_ROOT%{_datadir}/mame/roms
 
 
 %changelog
+* Thu Jan 09 2014 Julian Sikorski <belegdol@fedoraproject.org> - 0.152-1
+- Updated everything except sysinfo.dat to 0.152
+
 * Sun Jun 30 2013 Julian Sikorski <belegdol@fedoraproject.org> - 0.149-2
 - Updated everything except sysinfo.dat and category.ini to 0.149
 
