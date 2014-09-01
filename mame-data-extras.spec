@@ -1,4 +1,4 @@
-%global vernumber 152
+%global vernumber 154
 
 Name:           mame-data-extras
 Version:        0.%{vernumber}
@@ -7,19 +7,17 @@ Summary:        Extra data files for MAME
 
 License:        Freely redistributable without restriction
 URL:            http://mamedev.org
-Source1:        http://www.arcade-history.com/dats/history%{vernumber}a.7z
+Source1:        http://www.arcade-history.com/dats/history%{vernumber}c.7z
 Source2:        http://www.mameworld.info/mameinfo/download/Mameinfo0%{vernumber}.zip
 Source3:        http://www.kutek.net/mame_roms_pinball/mame32_config_files/ctrlr.rar
-# 0.152
+# 0.154
 Source4:        http://www.progettoemma.net/public/cat/catveren.zip
 Source5:        http://nplayers.arcadebelgium.be/files/nplayers0%{vernumber}.zip
 Source6:        http://cheat.retrogames.com/download/cheat0%{vernumber}.zip
 # 0.148
 Source7:        http://www.progettoemma.net/mess/zips/sysinfo.zip
-# 0.152
+# 0.154
 Source8:        http://www.progettosnaps.net/messinfo/messinfo.zip
-# 0.152. Get from https://sites.google.com/site/steashii/Home/ and zip
-Source9:        category.zip
 Source10:       http://mamedev.org/roms/robby/robby.zip
 
 BuildArch:      noarch
@@ -68,7 +66,6 @@ unzip -qa %{SOURCE6}
 unzip -qa %{SOURCE7} -d .
 unzip -qa %{SOURCE8} -d .
 7za x pS_messinfo.dat.7z
-unzip -qa %{SOURCE9} -d .
 unzip -qa %{SOURCE10} readme.txt
 mv readme.txt readme-robby.txt
 
@@ -104,7 +101,7 @@ install -pm 644 history.dat mameinfo.dat Catver.ini nplayers.ini cheat.7z \
     $RPM_BUILD_ROOT%{_datadir}/mame
 install -d $RPM_BUILD_ROOT%{_datadir}/mess
 install -pm 644 pS_messinfo.dat/"messinfo.dat Unicode, UTF-8 version (for QMC2)"/messinfo.dat \
-    pS_messinfo.dat/folders/version.ini category.ini sysinfo.dat \
+    pS_messinfo.dat/folders/version.ini sysinfo.dat \
     $RPM_BUILD_ROOT%{_datadir}/mess
 # The following might be ugly, but it is way simpler than creating a -common
 # subpackage and symlinks
@@ -127,7 +124,6 @@ install -pm 644 %{SOURCE10} $RPM_BUILD_ROOT%{_datadir}/mame/roms
 
 %files -n mess-data-extras
 %doc pS_messinfo.dat/messinfo
-%{_datadir}/mess/category.ini
 %{_datadir}/mess/messinfo.dat
 %{_datadir}/mess/sysinfo.dat
 %{_datadir}/mess/version.ini
@@ -139,6 +135,10 @@ install -pm 644 %{SOURCE10} $RPM_BUILD_ROOT%{_datadir}/mame/roms
 
 
 %changelog
+* Mon Sep 01 2014 Julian Sikorski <belegdol@fedoraproject.org> - 0.154-1
+- Updated everything except sysinfo.dat to 0.154
+- Dropped category.ini (it is part of qmc2 now)
+
 * Thu Jan 09 2014 Julian Sikorski <belegdol@fedoraproject.org> - 0.152-1
 - Updated everything except sysinfo.dat to 0.152
 
