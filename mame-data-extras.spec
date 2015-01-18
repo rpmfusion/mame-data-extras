@@ -1,4 +1,4 @@
-%global vernumber 154
+%global vernumber 157
 
 Name:           mame-data-extras
 Version:        0.%{vernumber}
@@ -7,16 +7,16 @@ Summary:        Extra data files for MAME
 
 License:        Freely redistributable without restriction
 URL:            http://mamedev.org
-Source1:        http://www.arcade-history.com/dats/history%{vernumber}c.7z
+Source1:        http://www.arcade-history.com/dats/history%{vernumber}.7z
 Source2:        http://www.mameworld.info/mameinfo/download/Mameinfo0%{vernumber}.zip
 Source3:        http://www.kutek.net/mame_roms_pinball/mame32_config_files/ctrlr.rar
-# 0.154
+# 0.154_fix
 Source4:        http://www.progettoemma.net/public/cat/catveren.zip
 Source5:        http://nplayers.arcadebelgium.be/files/nplayers0%{vernumber}.zip
-Source6:        http://cheat.retrogames.com/download/cheat0%{vernumber}.zip
+Source6:        http://cheat.retrogames.com/download/cheat0156.zip
 # 0.148
 Source7:        http://www.progettoemma.net/mess/zips/sysinfo.zip
-# 0.154
+# 0.157
 Source8:        http://www.progettosnaps.net/messinfo/messinfo.zip
 Source10:       http://mamedev.org/roms/robby/robby.zip
 
@@ -135,6 +135,10 @@ install -pm 644 %{SOURCE10} $RPM_BUILD_ROOT%{_datadir}/mame/roms
 
 
 %changelog
+* Sun Jan 18 2015 Julian Sikorski <belegdol@fedoraproject.org> - 0.157-1
+- Updated everything except sysinfo.dat, catver.ini and cheat.zip to 0.157
+- Updated cheat.zip to 0.156
+
 * Mon Sep 01 2014 Julian Sikorski <belegdol@fedoraproject.org> - 0.154-1
 - Updated everything except sysinfo.dat to 0.154
 - Dropped category.ini (it is part of qmc2 now)
