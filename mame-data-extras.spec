@@ -101,8 +101,7 @@ install -pm 644 history.dat mameinfo.dat Catver.ini nplayers.ini cheat.7z \
     $RPM_BUILD_ROOT%{_datadir}/mame
 install -d $RPM_BUILD_ROOT%{_datadir}/mess
 install -pm 644 pS_messinfo.dat/"messinfo.dat Unicode, UTF-8 version (for QMC2)"/messinfo.dat \
-    pS_messinfo.dat/folders/version.ini sysinfo.dat \
-    $RPM_BUILD_ROOT%{_datadir}/mess
+    sysinfo.dat $RPM_BUILD_ROOT%{_datadir}/mess
 # The following might be ugly, but it is way simpler than creating a -common
 # subpackage and symlinks
 install -d $RPM_BUILD_ROOT%{_datadir}/mame/ctrlr
@@ -126,7 +125,6 @@ install -pm 644 %{SOURCE10} $RPM_BUILD_ROOT%{_datadir}/mame/roms
 %doc pS_messinfo.dat/messinfo
 %{_datadir}/mess/messinfo.dat
 %{_datadir}/mess/sysinfo.dat
-%{_datadir}/mess/version.ini
 %{_datadir}/mess/ctrlr/*
 
 %files robby
@@ -137,6 +135,7 @@ install -pm 644 %{SOURCE10} $RPM_BUILD_ROOT%{_datadir}/mame/roms
 %changelog
 * Mon Feb 23 2015 Julian Sikorski <belegdol@fedoraproject.org> - 0.158-1
 - Updated everything except sysinfo.dat and cheat.zip to 0.158
+- Dropped version.ini as it is no longer provided in the messinfo.dat package
 
 * Sun Jan 18 2015 Julian Sikorski <belegdol@fedoraproject.org> - 0.157-1
 - Updated everything except sysinfo.dat, catver.ini and cheat.zip to 0.157
