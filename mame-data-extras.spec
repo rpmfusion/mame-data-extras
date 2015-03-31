@@ -1,4 +1,4 @@
-%global vernumber 158
+%global vernumber 160
 
 Name:           mame-data-extras
 Version:        0.%{vernumber}
@@ -10,13 +10,11 @@ URL:            http://mamedev.org
 Source1:        http://www.arcade-history.com/dats/history%{vernumber}.7z
 Source2:        http://www.mameworld.info/mameinfo/download/Mameinfo0%{vernumber}.zip
 Source3:        http://www.kutek.net/mame_roms_pinball/mame32_config_files/ctrlr.rar
-# 0.158
+# 0.160
 Source4:        http://www.progettoemma.net/public/cat/catveren.zip
 Source5:        http://nplayers.arcadebelgium.be/files/nplayers0%{vernumber}.zip
 Source6:        http://cheat.retrogames.com/download/cheat0156.zip
-# 0.148
-Source7:        http://www.progettoemma.net/mess/zips/sysinfo.zip
-# 0.158
+# 0.160
 Source8:        http://www.progettosnaps.net/messinfo/messinfo.zip
 Source10:       http://mamedev.org/roms/robby/robby.zip
 
@@ -63,7 +61,6 @@ mv readme.txt readme-catlist.txt
 unzip -qa %{SOURCE5} -d .
 mv docs nplayers
 unzip -qa %{SOURCE6}
-unzip -qa %{SOURCE7} -d .
 unzip -qa %{SOURCE8} -d .
 7za x pS_messinfo.dat.7z
 unzip -qa %{SOURCE10} readme.txt
@@ -101,7 +98,7 @@ install -pm 644 history.dat mameinfo.dat Catver.ini nplayers.ini cheat.7z \
     $RPM_BUILD_ROOT%{_datadir}/mame
 install -d $RPM_BUILD_ROOT%{_datadir}/mess
 install -pm 644 pS_messinfo.dat/"messinfo.dat Unicode, UTF-8 version (for QMC2)"/messinfo.dat \
-    sysinfo.dat $RPM_BUILD_ROOT%{_datadir}/mess
+    $RPM_BUILD_ROOT%{_datadir}/mess
 # The following might be ugly, but it is way simpler than creating a -common
 # subpackage and symlinks
 install -d $RPM_BUILD_ROOT%{_datadir}/mame/ctrlr
@@ -124,7 +121,6 @@ install -pm 644 %{SOURCE10} $RPM_BUILD_ROOT%{_datadir}/mame/roms
 %files -n mess-data-extras
 %doc pS_messinfo.dat/messinfo
 %{_datadir}/mess/messinfo.dat
-%{_datadir}/mess/sysinfo.dat
 %{_datadir}/mess/ctrlr/*
 
 %files robby
@@ -133,6 +129,10 @@ install -pm 644 %{SOURCE10} $RPM_BUILD_ROOT%{_datadir}/mame/roms
 
 
 %changelog
+* Tue Mar 31 2015 Julian Sikorski <belegdol@fedoraproject.org> - 0.160-1
+- Updated everything except cheat.zip to 0.160
+- Dropped sysinfo.dat
+
 * Mon Feb 23 2015 Julian Sikorski <belegdol@fedoraproject.org> - 0.158-1
 - Updated everything except sysinfo.dat and cheat.zip to 0.158
 - Dropped version.ini as it is no longer provided in the messinfo.dat package
