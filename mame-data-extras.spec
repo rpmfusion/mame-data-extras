@@ -1,4 +1,4 @@
-%global vernumber 160
+%global vernumber 163
 
 Name:           mame-data-extras
 Version:        0.%{vernumber}
@@ -10,11 +10,11 @@ URL:            http://mamedev.org
 Source1:        http://www.arcade-history.com/dats/history%{vernumber}.7z
 Source2:        http://www.mameworld.info/mameinfo/download/Mameinfo0%{vernumber}.zip
 Source3:        http://www.kutek.net/mame_roms_pinball/mame32_config_files/ctrlr.rar
-# 0.160
+# 0.161
 Source4:        http://www.progettoemma.net/public/cat/catveren.zip
-Source5:        http://nplayers.arcadebelgium.be/files/nplayers0%{vernumber}.zip
-Source6:        http://cheat.retrogames.com/download/cheat0156.zip
-# 0.160
+Source5:        http://nplayers.arcadebelgium.be/files/nplayers0161.zip
+Source6:        http://cheat.retrogames.com/download/cheat0%{vernumber}.zip
+# 0.163
 Source8:        http://www.progettosnaps.net/messinfo/messinfo.zip
 Source10:       http://mamedev.org/roms/robby/robby.zip
 
@@ -129,6 +129,10 @@ install -pm 644 %{SOURCE10} $RPM_BUILD_ROOT%{_datadir}/mame/roms
 
 
 %changelog
+* Tue Jul 14 2015 Julian Sikorski <belegdol@fedoraproject.org> - 0.163-1
+- Updated history.dat, mameinfo.dat, cheats and messinfo.dat to 0.163
+- Updated nplayers.dat and catver.ini to 0.161
+
 * Tue Mar 31 2015 Julian Sikorski <belegdol@fedoraproject.org> - 0.160-1
 - Updated everything except cheat.zip to 0.160
 - Dropped sysinfo.dat
